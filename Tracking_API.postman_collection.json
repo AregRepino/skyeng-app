@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "b3065742-a000-4c1a-8e38-c48781bc2b7c",
+		"name": "Tracking_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get a parcel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/parcels/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"parcels",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a parcel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"type\": \"LETTER\",\n     \"postCode\": \"1X35v5\",\n     \"address\": \"my address\",\n     \"name\": \"my name\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/parcels",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"parcels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a post office",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/post-offices/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"post-offices",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a post office",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"postCode\": \"1X35v5\",\n     \"address\": \"my post office address\",\n     \"name\": \"my post office name\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/post-offices",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"post-offices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a tracking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trackings/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trackings",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a tracking history of the parcel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/trackings?parcelId=1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trackings"
+					],
+					"query": [
+						{
+							"key": "parcelId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a tracking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"parcelId\": 1,\n     \"postOfficeId\": 1,\n     \"status\": \"ARRIVAL\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trackings",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trackings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a tracking",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n     \"parcelId\": 1,\n     \"postOfficeId\": 2,\n     \"status\": \"DEPARTURE\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/trackings/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"trackings",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:9009",
+			"type": "default"
+		}
+	]
+}
