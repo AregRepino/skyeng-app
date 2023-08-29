@@ -3,6 +3,7 @@ package ru.skyeng.app.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import ru.skyeng.app.dto.TrackingInputDto;
 import ru.skyeng.app.dto.TrackingDto;
 import ru.skyeng.app.entity.Tracking;
 import ru.skyeng.app.mapper.TrackingMapper;
@@ -32,14 +33,14 @@ public class TrackingController {
 
 
     @PostMapping
-    public TrackingDto createTracking(@RequestBody @Validated TrackingDto trackingDto) {
+    public TrackingDto createTracking(@RequestBody @Validated TrackingInputDto trackingDto) {
         Tracking tracking = trackingMapper.toTracking(trackingDto);
         Tracking createdTracking = trackingService.create(tracking);
         return trackingMapper.toTrackingDto(createdTracking);
     }
 
     @PutMapping("/{id}")
-    public TrackingDto updateTracking(@PathVariable Long id, @RequestBody @Validated TrackingDto trackingDto) {
+    public TrackingDto updateTracking(@PathVariable Long id, @RequestBody @Validated TrackingInputDto trackingDto) {
         Tracking tracking = trackingMapper.toTracking(id, trackingDto);
         Tracking updatedTracking = trackingService.update(tracking);
         return trackingMapper.toTrackingDto(updatedTracking);

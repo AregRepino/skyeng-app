@@ -3,6 +3,7 @@ package ru.skyeng.app.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import ru.skyeng.app.dto.PostOfficeCreateDto;
 import ru.skyeng.app.dto.PostOfficeDto;
 import ru.skyeng.app.entity.PostOffice;
 import ru.skyeng.app.mapper.PostOfficeMapper;
@@ -25,8 +26,8 @@ public class PostOfficeController {
 
 
     @PostMapping
-    public PostOfficeDto createPostOffice(@RequestBody @Validated PostOfficeDto userDto) {
-        PostOffice postOffice = postOfficeMapper.toPostOffice(userDto);
+    public PostOfficeDto createPostOffice(@RequestBody @Validated PostOfficeCreateDto postOfficeCreateDto) {
+        PostOffice postOffice = postOfficeMapper.toPostOffice(postOfficeCreateDto);
         PostOffice createdPostOffice = postOfficeService.create(postOffice);
         return postOfficeMapper.toPostOfficeDto(createdPostOffice);
     }

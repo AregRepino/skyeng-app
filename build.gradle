@@ -36,11 +36,11 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
-//    Spec/Documentation
-    // http://localhost:8080//swagger-ui/index.html#/
-    // https://mvnrepository.com/artifact/io.springfox/springfox-boot-starter
-    implementation group: 'io.springfox', name: 'springfox-boot-starter', version: '3.0.0'
 
+    // Swagger
+    // http://localhost:9009/swagger-ui/index.html
+    implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.2.0'
+    implementation group: 'io.swagger.core.v3', name: 'swagger-annotations', version: '2.2.15'
 
 //    Mapping
     implementation 'org.mapstruct:mapstruct:1.5.3.Final'

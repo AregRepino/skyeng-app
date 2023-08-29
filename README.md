@@ -78,15 +78,15 @@ Tracking
 
 Собрать проект
 ```
-./gradlew build 
+./gradlew bootJar 
 ```
 
-В папке `builds/libs` сгенерируются архивы: `.jar` и `.war`
+В папке `builds/libs` сгенерируются архив `.jar`
 
 
 Собрать проект `.war`
 ```
-./gradlew war 
+./gradlew bootWar 
 ```
 
 В папке `builds/libs` сгенерируется архив `.war`
@@ -104,7 +104,7 @@ Tracking
 
 Запустить сервис
 ```
-./gradlew bootRun - 
+./gradlew bootRun
 ```
 
 Запустить тесты
@@ -116,11 +116,19 @@ Tracking
 
 Запустить докер
 
+`./gradlew bootJar` - собрать `.jar` архив.
+
 ```
 docker build -t api .
 
 docker run -p 9009:9009 api
 ```
+
+##  API спецификация 
+
+- Swagger UI: http://localhost:9009/swagger-ui/index.html
+
+- Opem API: http://localhost:9009/v3/api-docs
 
 ## Ссылки
 

@@ -3,6 +3,7 @@ package ru.skyeng.app.mapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
+import ru.skyeng.app.dto.PostOfficeCreateDto;
 import ru.skyeng.app.dto.PostOfficeDto;
 import ru.skyeng.app.entity.PostOffice;
 
@@ -12,7 +13,8 @@ import ru.skyeng.app.entity.PostOffice;
 public abstract class PostOfficeMapper {
     public abstract PostOfficeDto toPostOfficeDto(PostOffice user);
 
-    public abstract PostOffice toPostOffice(PostOfficeDto userDto);
+    public abstract PostOffice toPostOffice(PostOfficeDto postOfficeDto);
+    public abstract PostOffice toPostOffice(PostOfficeCreateDto postOfficeCreateDto);
 
 
 }

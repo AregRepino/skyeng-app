@@ -7,6 +7,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
+import ru.skyeng.app.dto.PostOfficeCreateDto;
 import ru.skyeng.app.dto.PostOfficeDto;
 import ru.skyeng.app.entity.PostOffice;
 import ru.skyeng.app.mapper.PostOfficeMapper;
@@ -53,7 +54,7 @@ public class PostOfficeControllerTest {
     @Test
     public void createPostOffice() {
 //        given
-        PostOfficeDto postOfficeDto = new PostOfficeDto();
+        PostOfficeCreateDto postOfficeDto = new PostOfficeCreateDto();
 
         PostOfficeDto expectedPostOfficeDto = new PostOfficeDto();
         expectedPostOfficeDto.setId(1L);

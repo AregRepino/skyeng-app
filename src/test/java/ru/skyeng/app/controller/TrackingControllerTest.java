@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
 import ru.skyeng.app.dto.TrackingDto;
+import ru.skyeng.app.dto.TrackingInputDto;
 import ru.skyeng.app.entity.Tracking;
 import ru.skyeng.app.entity.TrackingStatus;
 import ru.skyeng.app.mapper.TrackingMapper;
@@ -56,7 +57,7 @@ public class TrackingControllerTest {
     @Test
     public void createTracking() {
 //        given
-        TrackingDto trackingDto = new TrackingDto();
+        TrackingInputDto trackingDto = new TrackingInputDto();
 
         TrackingDto expectedTrackingDto = new TrackingDto();
         expectedTrackingDto.setId(1L);
@@ -81,8 +82,8 @@ public class TrackingControllerTest {
     @Test
     public void updateTracking() {
 //        given
-        TrackingDto trackingDetailsDto = new TrackingDto();
-        trackingDetailsDto.setStatus(TrackingStatus.ARRIVAL);
+        TrackingInputDto trackingInputDto = new TrackingInputDto();
+        trackingInputDto.setStatus(TrackingStatus.ARRIVAL);
 
         TrackingDto expectedTrackingDto = new TrackingDto();
         expectedTrackingDto.setId(1L);
@@ -91,12 +92,12 @@ public class TrackingControllerTest {
         Tracking dbTracking = new Tracking();
         dbTracking.setId(1L);
 
-        given(trackingMapperMock.toTracking(1L, trackingDetailsDto)).willReturn(tracking);
+        given(trackingMapperMock.toTracking(1L, trackingInputDto)).willReturn(tracking);
         given(trackingServiceMock.update(tracking)).willReturn(dbTracking);
         given(trackingMapperMock.toTrackingDto(dbTracking)).willReturn(expectedTrackingDto);
 
 //        when
-        TrackingDto actual = trackingController.updateTracking(1L, trackingDetailsDto);
+        TrackingDto actual = trackingController.updateTracking(1L, trackingInputDto);
 
 //        then
         assert actual.equals(expectedTrackingDto);

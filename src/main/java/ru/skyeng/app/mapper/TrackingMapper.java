@@ -4,6 +4,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
+import ru.skyeng.app.dto.TrackingInputDto;
 import ru.skyeng.app.dto.TrackingDto;
 import ru.skyeng.app.entity.Tracking;
 
@@ -22,10 +23,10 @@ public abstract class TrackingMapper {
 
     @Mapping(source = "parcelId", target = "parcel.id")
     @Mapping(source = "postOfficeId", target = "postOffice.id")
-    public abstract Tracking toTracking(TrackingDto trackingDto);
+    public abstract Tracking toTracking(TrackingInputDto trackingDto);
 
 
-    public Tracking toTracking(Long id, TrackingDto trackingDto) {
+    public Tracking toTracking(Long id, TrackingInputDto trackingDto) {
         Tracking tracking = toTracking(trackingDto);
         tracking.setId(id);
         return tracking;

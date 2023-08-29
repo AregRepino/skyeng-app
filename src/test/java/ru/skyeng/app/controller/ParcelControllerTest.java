@@ -7,6 +7,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.junit4.SpringRunner;
+import ru.skyeng.app.dto.ParcelCreateDto;
 import ru.skyeng.app.dto.ParcelDto;
 import ru.skyeng.app.entity.Parcel;
 import ru.skyeng.app.mapper.ParcelMapper;
@@ -53,7 +54,7 @@ public class ParcelControllerTest {
     @Test
     public void createParcel() {
 //        given
-        ParcelDto parcelDto = new ParcelDto();
+        ParcelCreateDto parcelDto = new ParcelCreateDto();
 
         ParcelDto expectedParcelDto = new ParcelDto();
         expectedParcelDto.setId(1L);

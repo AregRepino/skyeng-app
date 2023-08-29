@@ -1,7 +1,7 @@
 package ru.skyeng.app.mapper;
 
 import org.junit.Test;
-import ru.skyeng.app.dto.TrackingDto;
+import ru.skyeng.app.dto.TrackingInputDto;
 import ru.skyeng.app.entity.Parcel;
 import ru.skyeng.app.entity.PostOffice;
 import ru.skyeng.app.entity.Tracking;
@@ -17,7 +17,7 @@ public class TrackingMapperTest {
     @Test
     public void toTracking() {
 //        given
-        TrackingDto source = new TrackingDto();
+        TrackingInputDto source = new TrackingInputDto();
         source.setStatus(TrackingStatus.ARRIVAL);
         source.setParcelId(2L);
         source.setPostOfficeId(3L);
@@ -44,7 +44,7 @@ public class TrackingMapperTest {
     @Test
     public void toTrackingWithId() {
 //        given
-        TrackingDto source = new TrackingDto();
+        TrackingInputDto source = new TrackingInputDto();
         source.setStatus(TrackingStatus.ARRIVAL);
         source.setParcelId(2L);
         source.setPostOfficeId(3L);

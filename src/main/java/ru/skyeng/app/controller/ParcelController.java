@@ -3,6 +3,7 @@ package ru.skyeng.app.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import ru.skyeng.app.dto.ParcelCreateDto;
 import ru.skyeng.app.dto.ParcelDto;
 import ru.skyeng.app.entity.Parcel;
 import ru.skyeng.app.mapper.ParcelMapper;
@@ -25,8 +26,8 @@ public class ParcelController {
 
 
     @PostMapping
-    public ParcelDto createParcel(@RequestBody @Validated ParcelDto userDto) {
-        Parcel parcel = parcelMapper.toParcel(userDto);
+    public ParcelDto createParcel(@RequestBody @Validated ParcelCreateDto parcelCreateDtoDto) {
+        Parcel parcel = parcelMapper.toParcel(parcelCreateDtoDto);
         Parcel createdParcel = parcelService.create(parcel);
         return parcelMapper.toParcelDto(createdParcel);
     }
